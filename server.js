@@ -1,6 +1,6 @@
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
+import express from 'express'
+import bodyParser from 'body-parser'
+import cors from 'cors'
 const app = express()
 app.locals.port = process.env.PORT || 3000
 
@@ -13,6 +13,10 @@ app.use(cors())
 
 app.get('/', (req, res) => {
   res.status(200).send(app.locals.pets)
+})
+
+app.get('/hello', (req, res) => {
+  res.send('Hi there')
 })
 
 app.listen(app.locals.port, () => {
